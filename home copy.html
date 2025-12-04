@@ -1,0 +1,543 @@
+D<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishnupur Chhath Puja Home Page </title>
+    <link rel="stylesheet" href="/CSS/home.css">
+    <link rel="stylesheet" href="/CSS/phone.css">
+    <link rel="stylesheet" href="/CSS/hed-foot.css">
+    <link rel="stylesheet" href="/CSS/main-info.css">
+    <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        .voice-btn {
+            position: fixed;
+            /* bottom: 20px;
+            right: 20px; */
+            background: #ffb84d;
+            border: none;
+            color: #fff;
+            /* padding: 12px 20px; */
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            z-index: 999;
+        }
+
+        .voice-btn:hover {
+            background: #ff9900;
+        }
+
+
+
+        /* Voice button */
+        #installBt {
+            color: yellow;
+            margin-top: 26px;
+            border-radius: 20px;
+            padding: 10px;
+            background: #0600b6c2;
+        }
+
+        #installBt:hover {
+            background: #ff9900;
+            color: black;
+        }
+    </style>
+    <style>
+        .voice-bt {
+            position: fixed;
+            bottom: 20px;
+            /* नीचे से दूरी */
+            right: 20px;
+            /* दाहिने से दूरी */
+            background-color: #4CAF50;
+            color: white;
+            /* border: none; */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, background-color 0.3s;
+            z-index: 9999;
+            /* हमेशा ऊपर दिखे */
+        }
+
+        .voice-bt:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+
+        summary {
+            color: #45a049;
+            font-size: 20px;
+
+        }
+
+        fieldset {
+            color: #d65d79;
+            border-radius: 10% / 50%;
+            border: 1px solid #000000;
+
+        }
+
+        legend {
+            margin: 0 0 0 75%;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1aa8f4;
+
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <!-- header -->
+    <header>
+        <div class="logo">
+            <img src="/img-video/lo.png" alt="">
+            आदर्श नवयुवक मित्रगण <br> छठ पूजा समिति
+        </div>
+
+        <fieldset>
+            <legend>live</legend>
+            <a href="#form" class="regLink"><i>&nbsp; Registration Form &nbsp;</i></a>
+
+            <!-- Sound file -->
+            <audio id="clickSound" src="/img-video/roblox-old-winning-sound-effect.mp3"></audio>
+
+        </fieldset>
+
+        <nav id="navbar">
+            <a class="regLink" href="#">Home</a>
+            <a class="regLink" href="#about">About</a>
+            <a class="regLink" href="#form">Contact</a>
+            <a class="regLink" href="Committee.html">Committee</a>
+            <a class="regLink" href="Certificate Gallery.html#Students">Students</a>
+            <a class="regLink" href="Certificate Gallery.html">Certificate <br> Gallery</a>
+            <button class="regLink" class="btn" id="installBtn"> APP install</button>
+        </nav>
+        <button class="bt"><a href="/a2.html">live</a></button>
+        <div class="menu-btn" id="menu-btn">&#9776;</div>
+    </header>
+
+    <!-- main -->
+    <main>
+        <section class="mn">
+            <video id="bgVideo" autoplay muted playsinline class="bg-video"></video>
+            <div style="background-color: rgba(29, 29, 37, 0.371); border-radius: 130px 0; " class="content">
+                <h1>🏆 Welcome! <br> <span>छोटे कदम, बड़ा धमाका</span> <br> बच्चों की भाषण प्रतियोगिता</h1>
+                <br>
+                <h4>🏆 बच्चों की धमाकेदार प्रस्तुति — छठ पूजा 28 अक्टूबर 2025!</h4>
+                <br>
+                <!-- <a href="#form" class="btn">Join Now</a> -->
+                <button onclick="playVoice1()">🔊 सुनें</button>
+            </div>
+        </section>
+
+
+        <section class="main-info">
+
+            <details>
+                <summary><b>🎤 छठ पूजा भाषण प्रतियोगिता – संक्षिप्त जानकारी</b></summary>
+                <br>
+                <p><b>तारीख:</b> 28 अक्टूबर 2025 (मंगलवार)</p>
+                <p><b>समय:</b> शाम 4:00 बजे से 6:00 बजे तक</p>
+                <p><b>स्थान:</b>गांधी चाैक, विष्णुपुर </p>
+                <p><b>भाग लेने वाले:</b> विद्यार्थी(उम्र 12–20 वर्ष) — केवल पहले 30 प्रतिभागी</p>
+                <p><b>भाषण समय:</b> प्रति प्रतिभागी 3–10 मिनट</p>
+                <p><b>पंजीकरण तिथि:</b> <a href="/home.html#form"> 26 अक्टूबर 2025 तक </a></p>
+                <p><b>पुरस्कार:</b><b>सभी प्रतिभागियों को:
+                    </b> प्रमाणपत्र + मेडल + गिफ्ट प्रदान किया जाएगा।</p>
+                <p><b>विषय:</b> “छठ पूजा का महत्व और समाज में इसका योगदान”</p>
+                <p><b>आयोजक:</b> <a href="/Certificate Gallery.html">Susheel kumar</a></p>
+                <br>
+                <p><b>आदर्श नवयुवक मित्रगण – छठ पूजा समिति </b> की ओर से आप सभी को ढेर सारी शुभकामनाएँ।</p>
+                <br>
+
+            </details>
+
+        </section>
+
+
+        <hr>
+
+        <!-- about -->
+        <section class="about" id="about">
+            <div class="ab-top">
+                <h2>आस्था और प्रेरणा</h2>
+            </div>
+
+            <div class="ab-senter">
+                <div class="row-1-Columns-1">
+                    <p><strong>छठ पूजा महापर्व समिति</strong> द्वारा यह आयोजन समाज में एकता, श्रद्धा और सांस्कृतिक
+                        जागरूकता का प्रतीक है।</p>
+                </div>
+                <div class="row-2-Columns-1">
+                    <p>छठ पूजा सूर्य देव और माता छठी मइया को समर्पित पर्व है। यह हमें सिखाता है कि संयम, समर्पण और आस्था
+                        से ही जीवन में प्रकाश आता है।</p>
+                </div>
+                <div class="row-1-Columns-2">
+                    <p>🌅 <strong>क्या आपने कभी सोचा है...</strong><br>
+                        • सूर्य देव को अर्घ्य देने का असली अर्थ क्या है?<br>
+                        • क्यों हमारे पूर्वज इस पर्व को इतना महत्वपूर्ण मानते थे?<br>
+                        • क्या हम अपने बच्चों को इन मूल्यों से जोड़ पा रहे हैं?</p>
+                </div>
+                <div class="row-2-Columns-2">
+                    <p>इन्हीं सवालों को समझने और संस्कृति का भाव जगाने के लिए इस वर्ष समिति ने एक विशेष <strong>“बच्चों
+                            की भाषण प्रतियोगिता”</strong> आयोजित की है।</p>
+                </div>
+            </div>
+
+
+
+            <div class="ab-down">
+                <p>हमारा उद्देश्य केवल आयोजन करना नहीं है — बल्कि बच्चों के मन में यह भाव जगाना है कि
+                    <strong>संस्कृति केवल मनाने की चीज़ नहीं, बल्कि समझने और जीने की चीज़ है।</strong>
+                </p>
+                <br>
+                🎖️ सर्वश्रेष्ठ बच्चों को <strong>मुखिया जी</strong> और <strong>समिति सदस्यों</strong> द्वारा पुरस्कार
+                और प्रमाणपत्र दिए जाएंगे।
+                <br><br>
+                <h3 style="text-align:center;">🙏 “छठ मइया की कृपा से सबका जीवन उज्जवल और मंगलमय हो।” 🌻</h3>
+            </div>
+        </section>
+
+        <!-- 🖼️ Poster Section -->
+        <section class="poster-section-1">
+            <div class="poster-content-1">
+                <div class="poster-content">
+                    <h2>Happy Chhath Puja</h2>
+                    <p>May the Sun God bless everyone with happiness and prosperity.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- form -->
+        <section class="teacher-form" id="form">
+            <div class="form-container">
+                <div class="form-left">
+                    <h2>छठ पूजा प्रतियोगिता फॉर्म</h2>
+                    <form id="chhathForm">
+                        <label>School / Institute Name:</label>
+                        <input type="text" id="schoolName" required>
+
+                        <label>Teacher Name:</label>
+                        <input type="text" id="teacherName" required>
+
+                        <label>Teacher Phone No.:</label>
+                        <input type="tel" id="teacherPhone" pattern="[0-9]{10}" required>
+
+                        <label>Total Number of Students:</label>
+                        <input type="number" id="totalStudents" required>
+
+                        <label>Students Name:</label>
+                        <textarea id="studentNames" rows="3" required></textarea>
+
+                        <button class="regLink" type="submit">Submit</button>
+                    </form>
+                </div>
+
+                <div class="form-right">
+                    <h3>📢 सूचना</h3>
+                    <p>यह फॉर्म केवल <strong>शिक्षकगण</strong> द्वारा भरा जा सकता है। कृपया सही जानकारी भरें।</p>
+                    🗓️ <strong>फॉर्म भरने की अवधि:</strong><br>
+                    <span style="color:#c85000; font-weight:bold;">22 अक्टूबर 2025</span> से
+                    <span style="color:#c85000; font-weight:bold;">26 अक्टूबर 2025</span> तक।<br><br>
+                    <p>🙏 <strong>Happy Chhath Puja</strong> के हार्दिक शुभकामनाएँ! 🌅</p>
+                </div>
+            </div>
+
+            <div id="thankYouPopup">
+                <h2>🎉 धन्यवाद 🙏</h2>
+                <p>आपका फॉर्म सफलतापूर्वक जमा हो गया है।<br>Thank you for your participation! 🌞</p>
+                <button onclick="closePopup()">Close</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>🌅 छठ पूजा महापर्व समिति</h3>
+                <p>आस्था, एकता और संस्कृति को आगे बढ़ाने की हमारी छोटी-सी पहल।</p>
+            </div>
+            <div class="footer-center-f">
+                <div class="footer-center">
+                    <h4>🔗 Quick Links</h4>
+                    <ul>
+                        <li><a class="regLink" href="index.html"> Home</a></li>
+                        <li><a class="regLink" href="#form"> Registration Form</a></li>
+                        <li><a class="regLink" href="info.html"> Records</a></li>
+                    </ul>
+                </div>
+                <div class="footer-center" style="padding:0 15px;">
+                    <h4>🔗 Page Links</h4>
+                    <ul>
+                        <li><a class="regLink" href="index.html"> Home</a></li>
+                        <li><a class="regLink" style="color: #4dffbb;" href="Committee.html"> Committee</a></li>
+                        <li><a class="regLink" href="Certificate Gallery.html">Certificate Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-right">
+                <h4>📞 Contact Us</h4>
+                <p><strong>आदर्श नवयुवक मित्रगण – छठ पूजा समिति</strong></p>
+                <p>Address – Gandhi Chhok,Vishnupur ,843324, sitamarhi</p>
+                <p>Phone: +91 9122704118</p>
+                <p>Email: susheelcoder1@gmail.com</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 vishnupur chhath puja 2025 | Designed with ❤️ for Faith & Culture</p>
+        </div>
+    </footer>
+
+    <!-- 🔊 Voice button -->
+    <button class="voice-bt" onclick="speakPage()">🔊</button>
+
+
+
+    <script src="script.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSS1QYV7PK"></script>
+
+
+</body>
+
+</html>
+
+
+
+
+<script>
+    const sound = document.getElementById("clickSound");
+    const links = document.querySelectorAll(".regLink");
+
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            sound.currentTime = 0; // हर बार शुरू से चले
+            sound.play();          // साउंड बजे
+        });
+    });
+</script>
+
+
+
+
+
+
+<script>
+    function playVoice1() {
+        const message = `
+—
+
+
+“बच्चों की भाषण प्रतियोगिता” 
+
+यहाँ आप छठ पूजा प्रतियोगिता के लिए बच्चों का नाम दर्ज कर सकते हैं।
+
+ पात्रता:
+बच्चों की उम्र 16 वर्ष से कम होनी चाहिए।
+
+ पुरस्कार:
+सर्वश्रेष्ठ बच्चों को मुखिया जी और समिति सदस्यों द्वारा
+पुरस्कार एवं प्रमाणपत्र प्रदान किए जाएंगे।
+
+ सम्मान:
+कार्यक्रम में भाग लेने वाले संस्थान (Institute) को भी
+विशेष सम्मान प्रदान किया जाएगा।
+
+ फॉर्म भरने की अवधि:
+22 अक्टूबर से 26 अक्टूबर 2025 तक।
+
+ छठ मइया की कृपा से सबका जीवन उज्जवल हो 
+
+  `;
+        const speech = new SpeechSynthesisUtterance(message);
+        speech.lang = 'hi-IN';
+        speech.rate = 1;
+        speech.pitch = 1;
+        window.speechSynthesis.speak(speech);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const message = `
+
+ Welcome! ,आपका स्वागत है |
+
+छोटे कदम, बड़ा धमाका
+बच्चों की भाषण प्रतियोगिता
+
+🏆 बच्चों की धमाकेदार प्रस्तुति — छठ पूजा 28 अक्टूबर 2025!
+
+
+आस्था और प्रेरणा
+छठ पूजा महापर्व समिति द्वारा यह आयोजन समाज में एकता, श्रद्धा और सांस्कृतिक जागरूकता का प्रतीक है।
+
+छठ पूजा सूर्य देव और माता छठी मइया को समर्पित पर्व है। यह हमें सिखाता है कि संयम, समर्पण और आस्था से ही जीवन में प्रकाश आता है।
+
+🌅 क्या आपने कभी सोचा है...
+• सूर्य देव को अर्घ्य देने का असली अर्थ क्या है?
+• क्यों हमारे पूर्वज इस पर्व को इतना महत्वपूर्ण मानते थे?
+• क्या हम अपने बच्चों को इन मूल्यों से जोड़ पा रहे हैं?
+
+इन्हीं सवालों को समझने और संस्कृति का भाव जगाने के लिए इस वर्ष समिति ने एक विशेष “बच्चों की भाषण प्रतियोगिता” आयोजित की है।
+
+हमारा उद्देश्य केवल आयोजन करना नहीं है — बल्कि बच्चों के मन में यह भाव जगाना है कि संस्कृति केवल मनाने की चीज़ नहीं, बल्कि समझने और जीने की चीज़ है।
+
+🎖️ सर्वश्रेष्ठ बच्चों को मुखिया जी और समिति सदस्यों द्वारा पुरस्कार और प्रमाणपत्र दिए जाएंगे।
+
+🙏 “छठ मइया की कृपा से सबका जीवन उज्जवल और मंगलमय हो।” 🌻
+
+छठ पूजा प्रतियोगिता फॉर्म
+School / Institute Name:
+Teacher Name:
+Teacher Phone Number.:
+Total Number of Students:
+Students Name:
+Submit
+
+📢 सूचना
+यह फॉर्म केवल शिक्षकगण द्वारा भरा जा सकता है। कृपया सही जानकारी भरें।
+फॉर्म भरने की अवधि 22 अक्टूबर 2025 से 26 अक्टूबर 2025 तक है। 
+इस अवधि के बाद फॉर्म सबमिट नहीं किया जा सकेगा। कृपया समय पर पंजीकरण सुनिश्चित करें।
+
+🙏 Happy Chhath Puja के हार्दिक शुभकामनाएँ! 🌅
+
+🌅 छठ पूजा महापर्व समिति
+आस्था, एकता और संस्कृति को आगे बढ़ाने की हमारी छोटी-सी पहल।
+
+
+छठ पूजा समिति 
+
+पता – Gandhi Chhok,Vishnupur ,843324|
+Phone: +91 9122704118,
+Email: susheelcoder1@gmail.com,
+
+© 2025 vishnupur chhath puja 2025 | Designed with ❤️ for Faith & Culture
+
+
+`;
+
+    function speakPage() {
+        const speech = new SpeechSynthesisUtterance(message);
+        speech.lang = "hi-IN";
+        speech.rate = 1;
+        speech.pitch = 1;
+        window.speechSynthesis.speak(speech);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+    // Create manifest dynamically (so all code stays in one file)
+    const manifestData = {
+        "name": "विष्णुपुर छठ पूजा ऐप",
+        "short_name": "Chhath Puja",
+        "start_url": "home.html",
+        "display": "standalone",
+        "background_color": "#ffffff",
+        "theme_color": "#0d47a1",
+        "icons": [
+            {
+                "src": "https://w7.pngwing.com/pngs/380/709/png-transparent-happy-chhath-puja-basket-for-chhath-puja.png",
+                "sizes": "192x192",
+                "type": "image/png"
+            },
+            {
+                "src": "https://w7.pngwing.com/pngs/380/709/png-transparent-happy-chhath-puja-basket-for-chhath-puja.png",
+                "sizes": "512x512",
+                "type": "image/png"
+            }
+        ]
+    };
+
+    const stringManifest = JSON.stringify(manifestData);
+    const blob = new Blob([stringManifest], { type: 'application/json' });
+    const manifestURL = URL.createObjectURL(blob);
+    document.querySelector('link[rel="manifest"]').setAttribute('href', manifestURL);
+
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js', { scope: './' })
+            .then(() => console.log('Service Worker Registered'))
+            .catch(err => console.log('Service Worker registration failed:', err));
+    }
+
+    // Add to Home Screen logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBtn.style.display = 'inline-block';
+    });
+
+    installBtn.addEventListener('click', async () => {
+        installBtn.style.display = 'none';
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response: ${outcome}`);
+            deferredPrompt = null;
+        }
+    });
+
+    // Create simple Service Worker inline (if not exists)
+    if ('serviceWorker' in navigator) {
+        const swCode = `
+        self.addEventListener('install', (event) => {
+          console.log('Service Worker installing.');
+          self.skipWaiting();
+        });
+        self.addEventListener('activate', (event) => {
+          console.log('Service Worker activating.');
+        });
+        self.addEventListener('fetch', (event) => {
+          event.respondWith(fetch(event.request));
+        });
+      `;
+        const blob = new Blob([swCode], { type: 'application/javascript' });
+        const swURL = URL.createObjectURL(blob);
+        navigator.serviceWorker.register(swURL);
+    }
+</script>

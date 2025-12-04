@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>विष्णुपुर छठ पूजा ऐप</title>
+  <link rel="manifest" href="">
+  <style>
+    /* Install Button Styling */
+    #installBtn {
+      display: none;
+      background: linear-gradient(135deg, #ff9800, #ff5722);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 25px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    #installBtn:hover {
+      background: linear-gradient(135deg, #ffb300, #ff7043);
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="btn" id="installBtn">📲 APP Install</button>
+
+  <script>
+    // ✅ Manifest बनाना (सब कुछ एक ही फाइल में रखने के लिए)
+    const manifestData = {
+      "name": "विष्णुपुर छठ पूजा ऐप",
+      "short_name": "Chhath Puja",
+      "start_url": "home.html",
+      "display": "standalone",
+      "background_color": "#ffffff",
+      "theme_color": "#0d47a1",
+      "icons": [
+        {
+          "src": "https://w7.pngwing.com/pngs/380/709/png-transparent-happy-chhath-puja-basket-for-chhath-puja.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "https://w7.pngwing.com/pngs/380/709/png-transparent-happy-chhath-puja-basket-for-chhath-puja.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
+    };
+
+    const stringManifest = JSON.stringify(manifestData);
+    const blob = new Blob([stringManifest], { type: 'application/json' });
+    const manifestURL = URL.createObjectURL(blob);
+    document.querySelector('link[rel="manifest"]').setAttribute('href', manifestURL);
+
+    // ✅ Service Worker रजिस्टर करना
+    if ('serviceWorker' in navigator) {
+      const swCode = `
+        self.addEventListener('install', (event) => {
+          console.log('Service Worker installing.');
+          self.skipWaiting();
+        });
+        self.addEventListener('activate', (event) => {
+          console.log('Service Worker activating.');
+        });
+        self.addEventListener('fetch', (event) => {
+          event.respondWith(fetch(event.request));
+        });
+      `;
+      const blob = new Blob([swCode], { type: 'application/javascript' });
+      const swURL = URL.createObjectURL(blob);
+      navigator.serviceWorker.register(swURL).then(() => {
+        console.log('Service Worker Registered');
+      }).catch(err => console.log('SW registration failed:', err));
+    }
+
+    // ✅ Add to Home Screen Logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = 'inline-block';
+    });
+
+    installBtn.addEventListener('click', async () => {
+      installBtn.style.display = 'none';
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`User response: ${outcome}`);
+        deferredPrompt = null;
+      }
+    });
+  </script>
+
+</body>
+</html>

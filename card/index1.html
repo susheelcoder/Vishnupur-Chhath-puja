@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+
+
+</style>
+
+<body>
+
+<section class="teacher-form">
+  <div class="form-container">
+    <!-- Left: Form -->
+    <div class="form-left">
+      <h2>छठ पूजा प्रतियोगिता फॉर्म</h2>
+      <form id="chhathForm">
+        <label>School / Institute Name:</label>
+        <input type="text" id="schoolName" placeholder="Enter your school or institute name" required>
+
+        <label>Teacher Name:</label>
+        <input type="text" id="teacherName" placeholder="Enter teacher name" required>
+
+        <label>Teacher Phone No.:</label>
+        <input type="tel" id="teacherPhone" placeholder="Enter phone number" pattern="[0-9]{10}" required>
+
+        <label>Total Number of Students:</label>
+        <input type="number" id="totalStudents" placeholder="Enter total students" required>
+
+        <label>Students Name:</label>
+        <textarea id="studentNames" rows="3" placeholder="Enter all student names separated by commas" required></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- Right: Info box -->
+    <div class="form-right">
+      <h3>📢 सूचना</h3>
+      <p>यह फॉर्म केवल <strong>शिक्षकगण</strong> द्वारा भरा जा सकता है। कृपया सही जानकारी भरें।</p>
+      <p>🙏 <strong>Happy Chhath Puja</strong> के हार्दिक शुभकामनाएँ! 🌅</p>
+      <p>आपका योगदान बच्चों के उज्जवल भविष्य में सहायक होगा।</p>
+    </div>
+  </div>
+
+  <!-- Thank You message -->
+  <div id="thankYouPopup">
+    <h2>🎉 धन्यवाद 🙏</h2>
+    <p>आपका फॉर्म सफलतापूर्वक जमा हो गया है।<br>Thank you for your participation! 🌞</p>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("chhathForm");
+  const popup = document.getElementById("thankYouPopup");
+
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    // Get values
+    const schoolName = document.getElementById("schoolName").value.trim();
+    const teacherName = document.getElementById("teacherName").value.trim();
+    const teacherPhone = document.getElementById("teacherPhone").value.trim();
+    const totalStudents = document.getElementById("totalStudents").value.trim();
+    const studentNames = document.getElementById("studentNames").value.trim();
+
+    // Date + Random No.
+    const today = new Date().toLocaleDateString('en-GB');
+    const randomNo = Math.floor(Math.random() * 100000);
+
+    // Prepare data for SheetDB
+    const data = {
+      data: [{
+        no: randomNo,
+        date: today,
+        "School / Institute Name:": schoolName,
+        "Teacher Name:": teacherName,
+        "Teacher Phone No.:": teacherPhone,
+        "Total Number of Students:": totalStudents,
+        "Students Name:": studentNames
+      }]
+    };
+
+    try {
+      // Send to SheetDB
+      const response = await fetch("https://sheetdb.io/api/v1/o9x6ygauy31ej", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        popup.style.display = "flex";
+        form.reset();
+      } else {
+        alert("❌ कुछ गलती हुई है, कृपया दोबारा कोशिश करें!");
+      }
+    } catch (error) {
+      alert("⚠️ Network Error! कृपया बाद में पुनः प्रयास करें।");
+      console.error(error);
+    }
+  });
+
+  function closePopup() {
+    popup.style.display = "none";
+  }
+</script>
+
+
+</body>
+
+</html>

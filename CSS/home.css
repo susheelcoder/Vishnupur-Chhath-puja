@@ -1,0 +1,424 @@
+body {
+  background-color: #f4f4f4;
+}
+
+
+
+/* /////////////////// */
+.mn {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Background Video */
+.mn .bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(70%);
+  border-radius: 68px 0;
+}
+
+/* Content over video */
+.mn .content {
+  text-align: center;
+  z-index: 2;
+  color: #ecececb8;
+}
+
+.mn .content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.mn .content span {
+  color: #ffe082d6;
+}
+
+.mn .content p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.mn .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #ff4757;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+.mn .btn:hover {
+  background-color: #e84118;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mn .content h1 {
+    font-size: 1.8rem;
+  }
+
+  .mn .content p {
+    font-size: 1rem;
+  }
+
+  .mn .btn {
+    padding: 8px 20px;
+  }
+
+  .mn {
+
+    height: 50%;
+
+  }
+}
+
+
+
+/* ///////// */
+/* ===== About Section (User-Friendly Design) ===== */
+.about {
+  max-width: 1200px;
+  margin: 22px auto;
+  padding: 40px 20px;
+  font-family: 'Outfit', sans-serif;
+  color: #333;
+  line-height: 1.8;
+  /* background: #fff; */
+}
+
+.ab-top {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.ab-top h2 {
+  font-size: 2.8rem;
+  color: #c85000;
+  font-weight: 600;
+  border-bottom: 3px solid #c85000;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.ab-senter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.ab-senter p {
+  background: #f8f9fa54;
+  padding: 20px 25px;
+  /* border-radius: 10px; */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.1rem;
+  /* border: dashed; */
+  /* border-width: 2px 4px; */
+  border-radius: 20px;
+}
+
+.ab-senter p:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.ab-down {
+  background: linear-gradient(120deg, #fff3e080, #69625786);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  font-size: 1.05rem;
+  border: 4mm ridge rgb(211 220 50 / 0.6);
+}
+
+.ab-down h3 {
+  color: #bf360c;
+  margin-bottom: 15px;
+}
+
+.ab-down ul {
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.ab-down li {
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ab-senter {
+    grid-template-columns: 1fr;
+  }
+
+  .ab-top h2 {
+    font-size: 2.2rem;
+  }
+
+  .ab-senter p {
+    font-size: 1rem;
+    /* border-radius: 10% / 50%; */
+    /* border: 4mm ridge rgb(211 220 50 / 0.6); */
+  }
+}
+
+
+
+/* //////////// */
+
+.teacher-form {
+  font-family: 'Outfit', sans-serif;
+  padding: 60px 20px;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(9, 9, 9, 0.076);
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.form-left h2 {
+  color: #c85000;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(9, 9, 9, 0.076);
+  border: 2px solid;
+}
+
+label {
+  font-weight: 500;
+}
+
+input,
+textarea {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 95%;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #ff8a00;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 138, 0, 0.3);
+}
+
+button {
+  background: #ff7b00;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #e86b00;
+}
+
+.form-right {
+  /* background: linear-gradient(135deg, #fff3e0, #ffe0b2); */
+  padding: 25px;
+  margin: auto;
+  border-radius: 12px;
+
+  /* box-shadow: 0 4px 10px rgba(0,0,0,0.1); */
+}
+
+.form-right h3 {
+  color: #bf360c;
+  margin-bottom: 10px;
+}
+
+.form-right p {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+/* Thank You popup */
+#thankYouPopup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#thankYouPopup div,
+#thankYouPopup h2,
+#thankYouPopup p {
+  text-align: center;
+}
+
+#thankYouPopup h2 {
+  color: #ff7b00;
+}
+
+#thankYouPopup p {
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+#thankYouPopup button {
+  margin-top: 15px;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-right {
+    order: -1;
+  }
+}
+
+
+
+
+.poster-section {
+  height: 80vh;
+  background-image: url('/img-video/1.png');
+  /* <-- apni image yahan daalein */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Fixed background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.poster-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+.poster-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.poster-content h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.poster-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .poster-section {
+    height: 25vh;
+    background-size: 87%;
+    background-position: center;
+  }
+}
+
+
+
+
+
+.poster-section-1 {
+  border: 5px solid black;
+  height: 80vh;
+  background-image: url('/img-video/chhath-v/1.jpg');
+  /* background-image: url('/img-video/p1.png'); */
+  /* <-- apni image yahan daalein */
+  background-size: 100%;
+  background-position: center;
+  background-attachment: fixed;
+  /* Fixed background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.poster-section-1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+.poster-content-1 {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 20px;
+}
+
+
+
+@media (max-width: 768px) {
+  .poster-section-1 {
+    /* height: 45vh; */
+      height: 42vh;
+    background-size: 98%;
+    background-position: center;
+    border-radius: 7px;
+  }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chhath Puja Voice Welcome</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fffaf3;
+    font-family: 'Outfit', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    color: #c85000;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h1>🌞 छठ पूजा प्रवेश पेज 🌸</h1>
+
+<script>
+  // स्वागत संदेश
+  const messagelive = `स्वागत है छठ पूजा प्रवेश पेज पर। 
+  कृपया सभी जानकारी ध्यानपूर्वक भरें और छठ मइया की कृपा से सबका जीवन मंगलमय हो।`;
+
+  // बोलने का function
+  function speakMessage(msg) {
+    const speech = new SpeechSynthesisUtterance(msg);
+    speech.lang = 'hi-IN';
+    speech.rate = 1.0;
+    speech.pitch = 1;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+  }
+
+  // सिर्फ तभी बोले जब page refresh हुआ हो
+  window.addEventListener("load", () => {
+    const entries = performance.getEntriesByType("navigation");
+    if (entries[0] && entries[0].type === "reload") {
+
+      // invisible one-time click trigger for browsers that block auto-play
+      function triggerVoice() {
+        speakMessage(messagelive);
+        document.removeEventListener('click', triggerVoice);
+      }
+
+      document.addEventListener('click', triggerVoice, { once: true });
+
+      // small timeout fallback if user clicks or interacts naturally
+      setTimeout(() => {
+        speakMessage(messagelive);
+      }, 400);
+    }
+  });
+
+  // पेज बंद या reload होने से पहले बोलना बंद
+  window.addEventListener("beforeunload", () => {
+    window.speechSynthesis.cancel();
+  });
+</script>
+
+
+</body>
+</html>

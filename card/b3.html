@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poster Section with Fixed Background</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <h1>Welcome to My Website</h1>
+    <p>Scroll down to see the Poster Section effect</p>
+  </header>
+
+
+
+  <main class="content">
+    <h2>More About the Event</h2>
+    <p>
+      Chhath Puja is dedicated to the Sun God, Surya, and his wife Usha, 
+      thanking them for bestowing life on earth and seeking their blessings.
+      The festival is celebrated with great devotion and enthusiasm, 
+      especially in Bihar, Jharkhand, and Uttar Pradesh.
+    </p>
+    <p>
+      Scroll more to see the background image stay still while you move.
+    </p>
+  </main>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<style class="css">
+
+
+
+.poster-section {
+  height: 100vh; 
+  background-image: url('/img-video/lo.png'); /* <-- apni image yahan daalein */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Fixed background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.poster-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+.poster-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.poster-content h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.poster-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+
+</style>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>छठ पूजा प्रोग्राम रेटिंग</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Home Button */
+    .home-btn {
+      background: #9365e3;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 84px;
+      margin-top: 74px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s;
+    }
+
+    .home-btn:hover {
+      background: #ff9800;
+    }
+
+    .rating-container {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      margin-bottom: 20px;
+      transition: background 0.4s;
+    }
+
+    .rating-container.success {
+      background: #e8f5e9; /* हल्का हरा */
+    }
+
+    h2 {
+      color: #e65100;
+      margin-bottom: 10px;
+    }
+
+    /* ⭐ Green Stars */
+    .stars {
+      display: flex;
+      justify-content: center;
+      flex-direction: row-reverse;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .stars input {
+      display: none;
+    }
+
+    .stars label {
+      font-size: 30px;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .stars input:checked ~ label {
+      color: #4caf50; /* Green */
+    }
+
+    .stars label:hover,
+    .stars label:hover ~ label {
+      color: #81c784;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      resize: none;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #96af4c;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #388e3c;
+    }
+
+    .info {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+      white-space: pre-line;
+    }
+
+    /* Average Rating Box */
+    .average-box {
+      background: white;
+      border-radius: 15px;
+      padding: 15px 20px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      color: #e65100;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    /* Ratings List */
+    .ratings-list {
+      width: 100%;
+      max-width: 500px;
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      max-height: 400px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+
+    .rating-item {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+
+    .rating-item:last-child {
+      border-bottom: none;
+    }
+
+    .stars-display {
+      color: #68fa38;
+    }
+
+    .rating-item small {
+      display: block;
+      color: #777;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🏠 Home Button -->
+  <button class="home-btn" onclick="window.location.href='home.html'">🏠 होम पेज 👈</button>
+
+  <div class="rating-container" id="ratingBox">
+    <h2>🎉 छठ पूजा प्रोग्राम रेटिंग</h2>
+    <form id="ratingForm">
+      <div class="stars">
+        <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+        <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+        <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+        <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+        <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+      </div>
+
+      <textarea id="message" placeholder="अपना अनुभव लिखें..."></textarea>
+      <input type="hidden" id="date">
+      <input type="hidden" id="time">
+
+      <button type="submit">सबमिट करें 👈</button>
+      <div class="info" id="info"></div>
+    </form>
+  </div>
+
+  <!-- औसत रेटिंग वाला बॉक्स -->
+  <div class="average-box" id="average">लोड हो रहा है...</div>
+
+  <!-- नीचे स्क्रॉल होने वाली लिस्ट -->
+  <div class="ratings-list" id="ratingsDisplay"></div>
+
+  <script>
+    const API_URL = "https://sheetdb.io/api/v1/e44ftrhlwi5so";
+
+    // Auto Date/Time
+    function setDateTime() {
+      const now = new Date();
+      const d = String(now.getDate()).padStart(2, '0');
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const y = String(now.getFullYear()).slice(-2);
+      document.getElementById('date').value = `${d}/${m}/${y}`;
+      document.getElementById('time').value = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+    }
+    setDateTime();
+
+    // Fetch and show ratings
+    async function loadRatings() {
+      document.getElementById('average').textContent = "लोड हो रहा है...";
+      const res = await fetch(API_URL);
+      const data = await res.json();
+
+      if (!data || data.length === 0) {
+        document.getElementById('average').textContent = "अभी तक कोई रेटिंग नहीं मिली ✨";
+        return;
+      }
+
+      const avg = (data.reduce((sum, r) => sum + Number(r.rating || 0), 0) / data.length).toFixed(1);
+      document.getElementById('average').textContent = `⭐ औसत रेटिंग: ${avg} / 5 (${data.length} वोट)`;
+
+      const container = document.getElementById('ratingsDisplay');
+      container.innerHTML = "";
+      data.reverse().forEach((r) => {
+        const stars = "★".repeat(r.rating) + "☆".repeat(5 - r.rating);
+        const msg = r.message ? r.message : "(कोई संदेश नहीं)";
+        const el = document.createElement('div');
+        el.className = 'rating-item';
+        el.innerHTML = `
+          <div class="stars-display">${stars}</div>
+          <div>${msg}</div>
+          <small>📅 ${r.date} | ⏰ ${r.time}</small>
+        `;
+        container.appendChild(el);
+      });
+    }
+
+    loadRatings();
+
+    // Submit new rating
+    document.getElementById('ratingForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const rating = Number(document.querySelector('input[name="rating"]:checked')?.value);
+      const message = document.getElementById('message').value.trim();
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+
+      if (!rating) return alert("कृपया ⭐ रेटिंग दें");
+
+      const data = { data: [{ date, time, rating, message }] };
+
+      try {
+        await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        const box = document.getElementById('ratingBox');
+        box.classList.add('success');
+        document.getElementById('info').textContent = "✅ धन्यवाद! आपकी रेटिंग सेव हो गई।";
+        e.target.reset();
+        setDateTime();
+        loadRatings(); // refresh list
+
+        setTimeout(() => box.classList.remove('success'), 2000);
+      } catch (err) {
+        document.getElementById('info').textContent = "❌ सर्वर से कनेक्शन नहीं हुआ।";
+      }
+    });
+  </script>
+</body>
+</html>
